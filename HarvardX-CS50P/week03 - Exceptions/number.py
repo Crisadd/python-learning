@@ -1,21 +1,19 @@
-""" while True:
-    try: 
-        x = int(input("What's x? "))
+def main():
+    x = get_in()
+    print(f'x is {x}')
 
-    except ValueError:
-        print('x is not an integer')
 
-    else:
-        break
+def get_in():
+    while True:
+        try:
+            x = int(input("What's x? "))
 
-print(f'x is {x}')
+        except ValueError:
+            print('x is not an integer')
 
-TERMINE EN 27:14
+        else:
+            # break
+            return x #it breaks the loop and it also return the number
 
-"""
 
-string = """My name is Cristian Delgado. I am a commercial pilot with a true passion for aviation. I have the privilege of flying passengers to their destinations, a responsibility I embrace with professionalism, commitment, and enthusiasm.
-I enjoy flying, discovering new countries, experiencing different cultures, and exploring new destinations that allow me to continue growing both professionally and personally. I believe in continuous learning, teamwork, and maintaining the highest standards of safety a
-"""
-
-print(len(string))
+main()
