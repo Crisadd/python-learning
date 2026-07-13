@@ -27,7 +27,7 @@ HINTS:
         print(f"{n:02}")
     - wherein, if n is a single digit, it will be prefixed with one 0, per docs.python.org/3/library/string.html#format-string-syntax.
 """
-months_list = [
+months = [
     "January",
     "February",
     "March",
@@ -42,14 +42,35 @@ months_list = [
     "December"
 ]
 
-date = input('Date: ').title()
+while True:
+    date = input("Date: ").strip()
 
-#day, month, year= date.split('/')
+    try:
+        if "/" in date:
+            month, day, year = date.split("/")
 
-if date in months_list:
-        print(months_list.index(date)+1)
+            month = int(month)
+            day = int(day)
+            year = int(year)
 
-""" 
-day, month, year= int(day), int(month), int(year)
-print(f'{year}-{month:02}-{day:02}')
-"""
+        else:
+            month, day, year = date.split()
+
+            if not day.endswith(","):
+                continue
+
+            day = day.replace(",", "")
+
+            if month not in months:
+                continue
+
+            month = months.index(month) + 1
+            day = int(day)
+            year = int(year)
+
+        if 1 <= month <= 12 and 1 <= day <= 31:
+            print(f"{year:04}-{month:02}-{day:02}")
+            break
+
+    except (ValueError, IndexError):
+        pass
