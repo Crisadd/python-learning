@@ -1,29 +1,36 @@
-import flight_distance_calculator, airport_database, view_metar
+import flight_distance_calculator, airport_database, games.guess_the_number
 
-# answers = [1,2,3,4,5,6,7,8,9,10]
+menu = {
+    1: "Flight Distance Calculator",
+    2: "Small Airport Database",
+    3: "Game: Guess The Number",
+    4: "Roulette",
+    0: "Exit",
+}
+
 while True:
-    print('========= MENU =========')
-    print('1 - Flight Distance Calculator')
-    print('2 - Small Airport Database')
-    print('3 - Metar Visibility Checker')
+    try:
+        print("========= MENU =========")
+        for key, value in menu.items():
+            print(f"{key} - {value}")
 
-    print('0 - Exit')
-    print('========================')
+        answer = int(input("Select a number: "))
 
-    answer = int(input('Select a number: '))
+        match answer:
+            case 1:
+                flight_distance_calculator.main()
+            case 2:
+                airport_database.main()
+            case 3:
+                games.guess_the_number.main()
+            case 4:
+                games.roulette.main()
 
+            case 0:
+                print("Goodbye!")
+                break
+            case _:
+                print("Invalid option.")
 
-    if answer == 1:
-        flight_distance_calculator.main()
-    elif answer == 2:
-        airport_database.main()
-    elif answer == 3:
-        view_metar.main()
-
-
-    elif answer == 0:
-        print("Goodbye!")
-        break
-    else:
-        print("Goodbye!")
-        break
+    except ValueError:
+        print("Invalid number.")

@@ -1,14 +1,4 @@
-Adivina el número
 
-La computadora elige un número aleatorio entre 1 y 100.
-El jugador intenta adivinarlo.
-Dar pistas ("más alto" o "más bajo").
-
-Practicas:
-
-random.randint()
-while
-if
 
 Piedra, papel o tijera
 
@@ -57,10 +47,7 @@ Listas
 Strings
 Bucles
 Funciones
-Ruleta
-El jugador apuesta a un número.
-La ruleta genera un número aleatorio.
-Se calcula si ganó.
+
 
 Blackjack simplificado
 
@@ -88,6 +75,7 @@ Probabilidad de golpe crítico.
 🔵 Nivel avanzado
 Buscaminas
 Las minas se colocan aleatoriamente.
+
 Generador de mazmorras
 Crear habitaciones al azar.
 En cada una puede haber:

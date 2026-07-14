@@ -11,12 +11,14 @@ Requirements
         * Longest flight
         * Shortest flight
 """
+
+
 def get_flight_legs():
-    flight_legs = int(input('How many flight legs did you fly?: '))
+    flight_legs = int(input("How many flight legs did you fly?: "))
 
     while flight_legs <= 0:
-        print('Invalid number. It must be greater than 0.')
-        flight_legs = int(input('How many flight legs did you fly?: '))
+        print("Invalid number. It must be greater than 0.")
+        flight_legs = int(input("How many flight legs did you fly?: "))
 
     return flight_legs
 
@@ -26,11 +28,11 @@ def collect_flight_data():
     nautical_miles_legs = []
 
     for i in range(flight_legs):
-        nautical_miles = int(input(f'How many Nautical Miles in leg {i + 1}?: '))
+        nautical_miles = int(input(f"How many Nautical Miles in leg {i + 1}?: "))
 
         while nautical_miles <= 0:
-            print('Invalid number. It must be greater than 0.')
-            nautical_miles = int(input(f'How many Nautical Miles in leg {i + 1}?: '))
+            print("Invalid number. It must be greater than 0.")
+            nautical_miles = int(input(f"How many Nautical Miles in leg {i + 1}?: "))
 
         nautical_miles_legs.append(nautical_miles)
 
@@ -46,15 +48,22 @@ def calculate_statistics(flight_legs, nautical_miles_legs):
     return total_distance, average_distance, longest_flight, shortest_flight
 
 
-def show_results(flight_legs, nautical_miles_legs, total_distance, average_distance, longest_flight, shortest_flight):
+def show_results(
+    flight_legs,
+    nautical_miles_legs,
+    total_distance,
+    average_distance,
+    longest_flight,
+    shortest_flight,
+):
 
-    print('\nFlight Summary')
-    print('+~~~~~~~~~~~~~~~~~~~~~~~~~+')
-    print(f'Total Distance: {total_distance} NM')
-    print(f'Average Distance: {average_distance:.1f} NM')
-    print(f'Longest Flight: {longest_flight} NM')
-    print(f'Shortest Flight: {shortest_flight} NM')
-    print('+~~~~~~~~~~~~~~~~~~~~~~~~~+')
+    print("\nFlight Summary")
+    print("+~~~~~~~~~~~~~~~~~~~~~~~~~+")
+    print(f"Total Distance: {total_distance} NM")
+    print(f"Average Distance: {average_distance:.1f} NM")
+    print(f"Longest Flight: {longest_flight} NM")
+    print(f"Shortest Flight: {shortest_flight} NM")
+    print("+~~~~~~~~~~~~~~~~~~~~~~~~~+")
 
 
 def main():
@@ -62,19 +71,29 @@ def main():
 
         flight_legs, nautical_miles_legs = collect_flight_data()
 
-        total_distance, average_distance, longest_flight, shortest_flight = calculate_statistics(flight_legs, nautical_miles_legs)
-        show_results(flight_legs, nautical_miles_legs, total_distance, average_distance, longest_flight, shortest_flight)
+        total_distance, average_distance, longest_flight, shortest_flight = (
+            calculate_statistics(flight_legs, nautical_miles_legs)
+        )
+        show_results(
+            flight_legs,
+            nautical_miles_legs,
+            total_distance,
+            average_distance,
+            longest_flight,
+            shortest_flight,
+        )
 
-        question = input('\nWould you like to continue? (y/n): ').lower()
+        question = input("\nWould you like to continue? (y/n): ").lower()
 
-        while question not in ('y', 'n'):
-            question = input('\nInvalid answer. Would you like to continue? (y/n): ').lower()
+        while question not in ("y", "n"):
+            question = input(
+                "\nInvalid answer. Would you like to continue? (y/n): "
+            ).lower()
 
-        if question == 'n':
-            print('Goodbye!')
+        if question == "n":
+            print("Goodbye!")
             break
+
 
 if __name__ == "__main__":
     main()
-
-
