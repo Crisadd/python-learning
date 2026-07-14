@@ -20,6 +20,3 @@ o = response.json()
 
 for result in o['results']:
     print(result["trackName"])
-
-
-1 hora: 8 minutos
