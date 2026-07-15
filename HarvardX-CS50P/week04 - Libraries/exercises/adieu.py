@@ -47,4 +47,4 @@ while True:
         break
 
 print(name_list)
-print(f'Adieu, adieu, {motor.join(name_list)}')
+print(f'Adieu, adieu, to {motor.join(name_list)}')
