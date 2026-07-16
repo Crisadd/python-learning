@@ -4,8 +4,11 @@ Bitcoin is a form of digital currency, otherwise known as cryptocurrency. Rather
 Because there’s demand for Bitcoin (i.e., users want it), users are willing to buy it, as by exchanging one currency (e.g., USD) for Bitcoin.
 
 In a file called bitcoin.py, implement a program that:
-    - Expects the user to specify as a command-line argument the number of Bitcoins, 𝑛, that they would like to buy. If that argument cannot be converted to a float, the program should exit via sys.exit with an error message.
-    - Queries the API for the CoinCap Bitcoin Price Index at rest.coincap.io/v3/assets/bitcoin?apiKey=YourApiKey. You should replace YourApiKey with the actual API key you obtained from your CoinCap account dashboard, which returns a JSON object, among whose nested keys is the current price of Bitcoin as a float. Be sure to catch any exceptions, as with code like:
+    - Expects the user to specify as a command-line argument the number of Bitcoins, 𝑛, that they would like to buy. If that argument
+    cannot be converted to a float, the program should exit via sys.exit with an error message.
+    - Queries the API for the CoinCap Bitcoin Price Index at rest.coincap.io/v3/assets/bitcoin?apiKey=YourApiKey. 
+    You should replace YourApiKey with the actual API key you obtained from your CoinCap account dashboard, which returns a
+    JSON object, among whose nested keys is the current price of Bitcoin as a float. Be sure to catch any exceptions, as with code like:
         import requests
 
         try:
@@ -16,7 +19,8 @@ In a file called bitcoin.py, implement a program that:
 
 HINTS:
     - Recall that the sys module comes with argv, per docs.python.org/3/library/sys.html#sys.argv.
-    - Note that the requests module comes with quite a few methods, per requests.readthedocs.io/en/latest, among which are get, per requests.readthedocs.io/en/latest/user/quickstart.html#make-a-request, and json, per requests.readthedocs.io/en/latest/user/quickstart.html#json-response-content. You can install it with:
+    - Note that the requests module comes with quite a few methods, per requests.readthedocs.io/en/latest, among which are get, per
+    requests.readthedocs.io/en/latest/user/quickstart.html#make-a-request, and json, per requests.readthedocs.io/en/latest/user/quickstart.html#json-response-content. You can install it with:
         pip install requests
     - Note that CoinCap’s API returns a JSON response like:
         {
@@ -44,12 +48,24 @@ HINTS:
 import requests
 import sys
 
+api_key = "2cf1e54da3e04a58451e3e1ea3b1a2e6b8cbf2790dd76c61563607a53804ff0a"
+
 if len(sys.argv) < 2:
     sys.exit("Missing command-line argument")
 
 try:
     n = float(sys.argv[1])
-    print(n)
 
+    r = requests.get(f'https://rest.coincap.io/v3/assets/bitcoin?apiKey={api_key}')
+    data = r.json()
+    print(data)
+    price = float(data["data"]["priceUsd"])
+
+    amount = n * price
+
+    print(f"${amount:,.4f}")
+    
 except ValueError:
-    sys.exit("Missing command-line argument")
+    sys.exit('Missing command-line argument')
+except requests.RequestException:
+    sys.exit('Missing command-line argument')
