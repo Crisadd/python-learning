@@ -7,14 +7,15 @@ import random
 
 
 def guessing():
-    target_number = random.randint(1, 100)
+    n_max = int(input("Max number: "))
+    target_number = random.randint(1, n_max)
     attempts = 1
 
     while True:
         try:
             guess = int(input("What is your guess?: "))
-            if not 1 <= guess <= 100:
-                print("Choose a number between 1 and 100.")
+            if not 1 <= guess <= n_max:
+                print(f"Choose a number between 1 and {n_max}.")
                 continue
 
             attempts += 1
@@ -50,7 +51,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""
+
 """Guessing Game
 I’m thinking of a number between 1 and 100…
 
@@ -69,7 +70,7 @@ In a file called game.py, implement a program that:
 HINTS:
     - Note that the random module comes with quite a few functions, per docs.python.org/3/library/random.html. Of particular interest, perhaps, are the functions specialized for returning integers, such as randint and randrange.
 """
-
+"""
 import random
 
 while True:
