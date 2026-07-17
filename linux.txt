@@ -1,0 +1,101 @@
+https://labex.io/linuxjourney
+
+QUICK START WITH LINUX
+linux learning
+The best way to learn Linux (and programming in general) is by doing.practice makes perfect.
+
+whoami / id-un	= who the computer thinks i am. The computres response with the username. It is useful when you're working on different machines or using different accounts
+
+id = In Linux, users are organized into groups. These groups determine the permissions and access rights a user has
+
+id -un	= prints only your username (the name for your current UID). You should see:
+
+id = Shows user and group information
+
+
+
+
+
+Use basic commands: echo, whoami, id.
+Extract a specific identity detail with id -un.
+
+In Linux, each user typically has a "home directory," represented by ~.
+
+pwd stands for "print working directory". It displays your current location in the file system
+ls to see the contents of your current directory
+
+ls ~This command lists the contents of your home directory, which may be different from your current working directory.
+
+Understanding the distinction between your current working directory and your home directory is important for navigating the Linux file system effectively.
+
+
+cd ~ The ~ is a shortcut for your home directory. GO to your home directory:
+
+
+
+
+touch file1.txt	= Create files The touch command is used to create an empty file. If the file already exists, it updates the file's timestamp without changing its content. It's a simple way to create new, empty files.
+
+echo "Hello, Linux" > file2.txt This command does two things:
+
+echo is a command that prints text.
+The > symbol redirects the output of echo into a file named file2.txt. If the file doesn't exist, it's created. If it does exist, its content is replaced.
+
+echo "Hidden file" > .hiddenfile = This creates a hidden file. In Linux, any file or directory name that starts with a dot (.) is considered hidden.
+
+
+mkdir testdir = create a directoryThe mkdir command (short for "make directory") creates a new directory named testdir.
+
+ls -l = The -l option (that's a lowercase L, not the number 1) provides a "long" format listing
+
+ls -a	= Show hidden files
+
+ls -la =	This combines the long format (-l) with showing all files (-a).
+
+
+cp file1.txt file1_copy.txt	= Copy a file This creates a copy of file1.txt named file1_copy.txt in the current directory.
+
+cp file2.txt testdir/		Copy a file to another directory. this copies file2.txt into the testdir directory.
+
+cp -r testdir testdir_copy	Copy a directory. The -r option stands for "recursive". It's necessary when copying directories to ensure all contents are copied
+
+
+
+Moving and Renaming Files and DirectorieMoving and Renaming Files and DirectorieMoving and Renaming Files and DirectorieMoving and Renaming Files and DirectorieMoving and Renaming Files and Directorie
+
+Moving and Renaming Files and Directorie
+Moving and Renaming Files and Directorie
+Moving and Renaming Files and Directorie
+Moving and Renaming Files and Directorie
+Moving and Renaming Files and Directorie
+Moving and Renaming Files and Directorie
+
+
+
+
+echo ' bla '
+
+limpiar terminal = Ctrl + L OR clear
+
+date
+cal = calender
+cal 2025 = whole year
+
+expr 5 + 3 = calculations 
+expr 24 * 7 The expr command supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/). 
+
+Opening and using the terminal
+Making your computer respond with echo
+Checking time and calendars with date and ncal
+Doing calculations with expr
+Creating ASCII art with figlet
+Keeping your workspace clean with clear
+
+
+
+Use basic commands: echo, whoami, id.
+Extract a specific identity detail with id -un.
+
+
+
+
