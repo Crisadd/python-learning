@@ -2,7 +2,7 @@ import csv
 
 students = []
 
-with open('students.csv') as file:
+with open('students.csv') as file:          # CON WITH LO ABRE Y LO CIERRA AUTOMATICAMENTE
     reader = csv.reader(file)
 
     #for row in reader:
